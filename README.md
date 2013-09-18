@@ -40,3 +40,7 @@ Publish the Configuration and setup the API Key
 ```
 php artisan config:publish abishekrsrikaanth/mongohq-api
 ```
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/abishekrsrikaanth/mongohq-api-laravel4/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
