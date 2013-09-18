@@ -6,7 +6,7 @@ Laravel 4 Integration for MongoHQ API
 - [Installation](#install)
 
 ###Installation<a name="install"></a>
-Add abishekrsrikaanth/mailto as a requirement to composer.json:
+Add abishekrsrikaanth/mongohq-api as a requirement to composer.json:
 ```
 {
     ...
@@ -35,7 +35,7 @@ and the Facade info on app/config/app.php
 	'MongoHQ'     => 'Abishekrsrikaanth\MongohqApi\Facades\MongohqApi',
 ),
 ```
-Publish the Configuration and setup the config with the credentials of the different email providers
+Publish the Configuration and setup the API Key
 ```
 php artisan config:publish abishekrsrikaanth/mongohq-api
 ```
