@@ -1,6 +1,8 @@
 {
     "name": "abishekrsrikaanth/mongohq-api",
-    "description": "",
+    "description": "Laravel 4 Integration for MongoHQ API",
+    "license": "BSD-3-Clause",
+    "keywords": ["email","laravel","laravel-4","mandrill"],
     "authors": [
         {
             "name": "Abishek R Srikaanth",
