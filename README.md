@@ -5,6 +5,7 @@ Laravel 4 Integration for MongoHQ API
 
 - [Installation](#install)
 - Detailed Documentation (Coming Soon)
+
 ###Installation<a name="install"></a>
 Add abishekrsrikaanth/mongohq-api as a requirement to composer.json:
 ```
