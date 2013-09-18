@@ -16,9 +16,6 @@
         "guzzle/guzzle": "3.7.*@dev"
     },
     "autoload": {
-        "classmap": [
-            "src/migrations"
-        ],
         "psr-0": {
             "Abishekrsrikaanth\\MongohqApi": "src/"
         }
