@@ -36,7 +36,7 @@ class Database extends Executor
 		return $this->send('databases/' . $name, array('_apikey' => $this->_key), "GET");
 	}
 
-	public function delete($name)
+	public function drop($name)
 	{
 		return $this->send('databases/' . $name, array('_apikey' => $this->_key), "DELETE");
 	}

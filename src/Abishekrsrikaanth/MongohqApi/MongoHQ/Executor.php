@@ -7,7 +7,7 @@ class Executor
 {
 	private $_base_url = 'https://api.mongohq.com';
 
-	public function send($url, $obj, $type)
+	protected final function send($url, $obj, $type)
 	{
 		$client  = new Client($this->_base_url);
 		$request = null;
