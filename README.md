@@ -9,9 +9,19 @@
   - [Get DB Info](#info-db)
   - [Drop DB](#drop-db)
 - [Collections](#collections)
+  - [List Collections](#list-coll)
+  - [Create Collection](#create-coll)
+  - [Collection Stats](#stats-coll)
+  - [Rename Collection](#rename-coll)
+  - [Drop Collection](#drop-coll)
 - [Indexes](#indexes)
+  - [List Indexes](#list-idx)
+  - [Create Index](#create-idx)
+  - [Drop Index](#drop-idx)
+  - [Drop All Collection Indexes](#drop-idx-all)
 
-###Installation<a name="install"></a>
+<a name="install"></a>
+###Installation
 Add abishekrsrikaanth/mongohq-api as a requirement to composer.json:
 ```
 {
@@ -46,7 +56,8 @@ Publish the Configuration and setup the API Key<a name="config-publish"></a>
 php artisan config:publish abishekrsrikaanth/mongohq-api
 ```
 ---------------------
-###Usage<a name="usage"></a>
+<a name="usage"></a>
+###Usage
 
 ***Initializing the database Object***
 
@@ -87,72 +98,87 @@ To pass the MongoHQ API Key dynamically
 $idx = MongoHQ::Indexes('API_KEY_GOES_HERE')
 ```
 -------------------
-###Database<a name="database"></a>
+<a name="database"></a>
+###Database
 
-####Getting the list of databases<a name="list-db"></a>
+<a name="list-db"></a>
+####Getting the list of databases
 ```
 $db = MongoHQ::Database(); //Initializes the Database Class
 $db->get();
 ```
 
-####Create Database<a name="create-db"></a>
+<a name="create-db"></a>
+####Create Database
 ```
 $db = MongoHQ::Database();
 $db->create('DB_NAME','PLAN_TO_USE');
 ```
 
-####Get DB Info<a name="info-db"></a>
+<a name="info-db"></a>
+####Get DB Info
 ```
 $db = MongoHQ::Database();
 $db->info('DB_NAME_TO_GET_THE_INFO');
 ```
 
-####Drop a Database<a name="drop-db"></a>
+<a name="drop-db"></a>
+####Drop a Database
 ```
 $db = MongoHQ::Database();
 $db->drop('DB_NAME_TO_GET_THE_INFO');
 ```
 -------------------
-###Collections<a name="collections"></a>
-####Getting the list of collections<a name="list-coll"></a>
+<a name="collections"></a>
+###Collections
+
+<a name="list-coll"></a>
+####Getting the list of collections
 ```
 $coll = MongoHQ::Collections(); //Initializes the Database Class
 $coll->get('DB_NAME_TO_GET_THE_LIST_COLLECTIONS');
 ```
 
-####Create a Collection<a name="create-coll"></a>
+<a name="create-coll"></a>
+####Create a Collection
 ```
 $coll = MongoHQ::Collections();
 $coll->create('DB_NAME_TO_CREATE_THE_COLLECTION_ON','COLLECTION_NAME');
 ```
 
-####Getting the Collection Stats<a name="stats-coll"></a>
+<a name="stats-coll"></a>
+####Getting the Collection Stats
 ```
 $coll = MongoHQ::Collections();
 $coll->stats('DB_NAME','COLLECTION_NAME_TO_GET_STATS');
 ```
 
-####Rename Collection<a name="info-coll"></a>
+<a name="rename-coll"></a>
+####Rename Collection
 ```
 $coll = MongoHQ::Collections();
 $coll->rename('DB_NAME','OLD_COLLECTION_NAME','NEW_COLLECTION_NAME');
 ```
 
-####Drop a Collection from a Database<a name="drop-coll"></a>
+<a name="drop-coll"></a>
+####Drop a Collection from a Database
 ```
 $coll = MongoHQ::Collections();
 $coll->drop('DB_NAME','COLLECTION_NAME_TO_DROP');
 ```
 -----------------
-###Indexes<a name="indexes"></a>
+<a name="indexes"></a>
+###Indexes
 
-####Getting the list of indexes on a Collection<a name="list-idx"></a>
+<a name="list-idx"></a>
+####Getting the list of indexes on a Collection
 ```
 $idx = MongoHQ::Indexes(); //Initializes the Database Class
 $idx->get('DB_NAME','COLLECTION_NAME');
 ```
 
-####Create an Index on a Collection<a name="create-idx"></a>
+<a name="create-idx"></a>
+####Create an Index on a Collection
 ```
 $idx = MongoHQ::Indexes();
 $idx->create('DB_NAME','COLLECTION_NAME',
@@ -169,13 +195,14 @@ $idx->create('DB_NAME','COLLECTION_NAME',
     );
 
 ```
-####Drop an Index on a Collection<a name="drop-db"></a>
+<a name="drop-idx"></a>
+####Drop an Index on a Collection
 ```
 $idx = MongoHQ::Indexes();
 $idx->drop('DB_NAME','COLLECTION_NAME','IDX_NAME');
 ```
-
-####Drop all Indexes on the Collection<a name="drop-db"></a>
+<a name="drop-idx-all"></a>
+####Drop all Indexes on the Collection
 ```
 $idx = MongoHQ::Indexes();
 $idx->dropAll('DB_NAME','COLLECTION_NAME');
