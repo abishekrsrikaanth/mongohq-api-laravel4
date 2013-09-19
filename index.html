@@ -39,13 +39,47 @@
         <ul></ul>
       </nav>
       <section>
-        <p>Laravel 4 Integration for MongoHQ API</p>
+        <h2>
+<a name="laravel-4-integration-for-mongohq-api" class="anchor" href="#laravel-4-integration-for-mongohq-api"><span class="octicon octicon-link"></span></a>Laravel 4 Integration for MongoHQ API</h2>
 
 <ul>
 <li><a href="#install">Installation</a></li>
-</ul><h3>
-<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation<a name="install"></a>
-</h3>
+<li><a href="#usage">Usage</a></li>
+<li>
+<a href="#database">Database</a>
+
+<ul>
+<li><a href="#list-db">List Databases</a></li>
+<li><a href="#create-db">Create Database</a></li>
+<li><a href="#info-db">Get DB Info</a></li>
+<li><a href="#drop-db">Drop DB</a></li>
+</ul>
+</li>
+<li>
+<a href="#collections">Collections</a>
+
+<ul>
+<li><a href="#list-coll">List Collections</a></li>
+<li><a href="#create-coll">Create Collection</a></li>
+<li><a href="#stats-coll">Collection Stats</a></li>
+<li><a href="#rename-coll">Rename Collection</a></li>
+<li><a href="#drop-coll">Drop Collection</a></li>
+</ul>
+</li>
+<li>
+<a href="#indexes">Indexes</a>
+
+<ul>
+<li><a href="#list-idx">List Indexes</a></li>
+<li><a href="#create-idx">Create Index</a></li>
+<li><a href="#drop-idx">Drop Index</a></li>
+<li><a href="#drop-idx-all">Drop All Collection Indexes</a></li>
+</ul>
+</li>
+</ul><p><a name="install"></a></p>
+
+<h3>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h3>
 
 <p>Add abishekrsrikaanth/mongohq-api as a requirement to composer.json:</p>
 
@@ -80,10 +114,197 @@
 ),
 </code></pre>
 
-<p>Publish the Configuration and setup the API Key</p>
+<p>Publish the Configuration and setup the API Key<a name="config-publish"></a></p>
 
 <pre><code>php artisan config:publish abishekrsrikaanth/mongohq-api
 </code></pre>
+
+<hr><p><a name="usage"></a></p>
+
+<h3>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h3>
+
+<p><strong><em>Initializing the database Object</em></strong></p>
+
+<p>If the MongoHQ API Key is configured on the <a href="#config-publish">config file published</a></p>
+
+<pre><code>$db = MongoHQ::Database(); 
+</code></pre>
+
+<p>To pass the MongoHQ API Key dynamically</p>
+
+<pre><code>$db = MongoHQ::Database('API_KEY_GOES_HERE')
+</code></pre>
+
+<p><strong><em>Initializing the Collections Object</em></strong></p>
+
+<p>If the MongoHQ API Key is configured on the <a href="#config-publish">config file published</a></p>
+
+<pre><code>$coll = MongoHQ::Collections(); 
+</code></pre>
+
+<p>To pass the MongoHQ API Key dynamically</p>
+
+<pre><code>$coll = MongoHQ::Collections('API_KEY_GOES_HERE')
+</code></pre>
+
+<p><strong><em>Initializing the Indexes Object</em></strong></p>
+
+<p>If the MongoHQ API Key is configured on the <a href="#config-publish">config file published</a></p>
+
+<pre><code>$idx = MongoHQ::Indexes(); 
+</code></pre>
+
+<p>To pass the MongoHQ API Key dynamically</p>
+
+<pre><code>$idx = MongoHQ::Indexes('API_KEY_GOES_HERE')
+</code></pre>
+
+<hr><p><a name="database"></a></p>
+
+<h3>
+<a name="database" class="anchor" href="#database"><span class="octicon octicon-link"></span></a>Database</h3>
+
+<p><a name="list-db"></a></p>
+
+<h4>
+<a name="getting-the-list-of-databases" class="anchor" href="#getting-the-list-of-databases"><span class="octicon octicon-link"></span></a>Getting the list of databases</h4>
+
+<pre><code>$db = MongoHQ::Database(); //Initializes the Database Class
+$db-&gt;get();
+</code></pre>
+
+<p><a name="create-db"></a></p>
+
+<h4>
+<a name="create-database" class="anchor" href="#create-database"><span class="octicon octicon-link"></span></a>Create Database</h4>
+
+<pre><code>$db = MongoHQ::Database();
+$db-&gt;create('DB_NAME','PLAN_TO_USE');
+</code></pre>
+
+<p><a name="info-db"></a></p>
+
+<h4>
+<a name="get-db-info" class="anchor" href="#get-db-info"><span class="octicon octicon-link"></span></a>Get DB Info</h4>
+
+<pre><code>$db = MongoHQ::Database();
+$db-&gt;info('DB_NAME_TO_GET_THE_INFO');
+</code></pre>
+
+<p><a name="drop-db"></a></p>
+
+<h4>
+<a name="drop-a-database" class="anchor" href="#drop-a-database"><span class="octicon octicon-link"></span></a>Drop a Database</h4>
+
+<pre><code>$db = MongoHQ::Database();
+$db-&gt;drop('DB_NAME_TO_GET_THE_INFO');
+</code></pre>
+
+<hr><p><a name="collections"></a></p>
+
+<h3>
+<a name="collections" class="anchor" href="#collections"><span class="octicon octicon-link"></span></a>Collections</h3>
+
+<p><a name="list-coll"></a></p>
+
+<h4>
+<a name="getting-the-list-of-collections" class="anchor" href="#getting-the-list-of-collections"><span class="octicon octicon-link"></span></a>Getting the list of collections</h4>
+
+<pre><code>$coll = MongoHQ::Collections(); //Initializes the Database Class
+$coll-&gt;get('DB_NAME_TO_GET_THE_LIST_COLLECTIONS');
+</code></pre>
+
+<p><a name="create-coll"></a></p>
+
+<h4>
+<a name="create-a-collection" class="anchor" href="#create-a-collection"><span class="octicon octicon-link"></span></a>Create a Collection</h4>
+
+<pre><code>$coll = MongoHQ::Collections();
+$coll-&gt;create('DB_NAME_TO_CREATE_THE_COLLECTION_ON','COLLECTION_NAME');
+</code></pre>
+
+<p><a name="stats-coll"></a></p>
+
+<h4>
+<a name="getting-the-collection-stats" class="anchor" href="#getting-the-collection-stats"><span class="octicon octicon-link"></span></a>Getting the Collection Stats</h4>
+
+<pre><code>$coll = MongoHQ::Collections();
+$coll-&gt;stats('DB_NAME','COLLECTION_NAME_TO_GET_STATS');
+</code></pre>
+
+<p><a name="rename-coll"></a></p>
+
+<h4>
+<a name="rename-collection" class="anchor" href="#rename-collection"><span class="octicon octicon-link"></span></a>Rename Collection</h4>
+
+<pre><code>$coll = MongoHQ::Collections();
+$coll-&gt;rename('DB_NAME','OLD_COLLECTION_NAME','NEW_COLLECTION_NAME');
+</code></pre>
+
+<p><a name="drop-coll"></a></p>
+
+<h4>
+<a name="drop-a-collection-from-a-database" class="anchor" href="#drop-a-collection-from-a-database"><span class="octicon octicon-link"></span></a>Drop a Collection from a Database</h4>
+
+<pre><code>$coll = MongoHQ::Collections();
+$coll-&gt;drop('DB_NAME','COLLECTION_NAME_TO_DROP');
+</code></pre>
+
+<hr><p><a name="indexes"></a></p>
+
+<h3>
+<a name="indexes" class="anchor" href="#indexes"><span class="octicon octicon-link"></span></a>Indexes</h3>
+
+<p><a name="list-idx"></a></p>
+
+<h4>
+<a name="getting-the-list-of-indexes-on-a-collection" class="anchor" href="#getting-the-list-of-indexes-on-a-collection"><span class="octicon octicon-link"></span></a>Getting the list of indexes on a Collection</h4>
+
+<pre><code>$idx = MongoHQ::Indexes(); //Initializes the Database Class
+$idx-&gt;get('DB_NAME','COLLECTION_NAME');
+</code></pre>
+
+<p><a name="create-idx"></a></p>
+
+<h4>
+<a name="create-an-index-on-a-collection" class="anchor" href="#create-an-index-on-a-collection"><span class="octicon octicon-link"></span></a>Create an Index on a Collection</h4>
+
+<pre><code>$idx = MongoHQ::Indexes();
+$idx-&gt;create('DB_NAME','COLLECTION_NAME',
+    array('name'=&gt;'1'),  //IDX_SPEC - The index spec to be created. (i.e. {name:1})&lt;/dd&gt;
+    array(
+        'background' =&gt; true, //Indicate that the index should be built in the background. (defaults to true)
+        'unique'     =&gt; false, //If true, this index will enforce a uniqueness constraint. (defaults to false)
+        'drop_dups'  =&gt; false, //If creating a unique index on a collection with pre-existing records, 
+                             //this option will keep the first document the database 
+                             //indexes and drop all subsequent with duplicate values. (defaults to false)
+        'min'        =&gt; null, //Specify the minimum longitude and latitude for a geo index. (defaults to null)
+        'max'        =&gt; null //Specify the maximum longitude and latitude for a geo index. (defaults to null)
+        )
+    );
+
+</code></pre>
+
+<p><a name="drop-idx"></a></p>
+
+<h4>
+<a name="drop-an-index-on-a-collection" class="anchor" href="#drop-an-index-on-a-collection"><span class="octicon octicon-link"></span></a>Drop an Index on a Collection</h4>
+
+<pre><code>$idx = MongoHQ::Indexes();
+$idx-&gt;drop('DB_NAME','COLLECTION_NAME','IDX_NAME');
+</code></pre>
+
+<p><a name="drop-idx-all"></a></p>
+
+<h4>
+<a name="drop-all-indexes-on-the-collection" class="anchor" href="#drop-all-indexes-on-the-collection"><span class="octicon octicon-link"></span></a>Drop all Indexes on the Collection</h4>
+
+<pre><code>$idx = MongoHQ::Indexes();
+$idx-&gt;dropAll('DB_NAME','COLLECTION_NAME');
+</code></pre>
+
+<p><a href="https://bitdeli.com/free" title="Bitdeli Badge"><img src="https://d2weczhvl823v0.cloudfront.net/abishekrsrikaanth/mongohq-api-laravel4/trend.png" alt="Bitdeli Badge"></a></p>
       </section>
       <footer>
         <p>Project maintained by <a href="https://github.com/abishekrsrikaanth">abishekrsrikaanth</a></p>
