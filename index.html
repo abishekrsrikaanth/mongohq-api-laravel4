@@ -76,6 +76,13 @@
 <li><a href="#drop-idx-all">Drop All Collection Indexes</a></li>
 </ul>
 </li>
+<li>
+<a href="#users">Users</a>
+
+<ul>
+<li><a href="#create-user">Create User</a></li>
+</ul>
+</li>
 </ul><p><a name="install"></a></p>
 
 <h3>
@@ -155,12 +162,22 @@
 <pre><code>$idx = MongoHQ::Indexes(); 
 </code></pre>
 
+<p><strong><em>Initializing the Users Object</em></strong></p>
+
+<p>If the MongoHQ API Key is configured on the <a href="#config-publish">config file published</a></p>
+
+<pre><code>$idx = MongoHQ::Users(); 
+</code></pre>
+
 <p>To pass the MongoHQ API Key dynamically</p>
 
 <pre><code>$idx = MongoHQ::Indexes('API_KEY_GOES_HERE')
 </code></pre>
 
-<hr><p><a name="database"></a></p>
+<h2>
+<a name="the-api-key-can-be-passed-to-all-the-initializations-mentioned-above" class="anchor" href="#the-api-key-can-be-passed-to-all-the-initializations-mentioned-above"><span class="octicon octicon-link"></span></a>The API Key can be passed to all the initializations mentioned above</h2>
+
+<p><a name="database"></a></p>
 
 <h3>
 <a name="database" class="anchor" href="#database"><span class="octicon octicon-link"></span></a>Database</h3>
@@ -303,6 +320,22 @@ $idx-&gt;drop('DB_NAME','COLLECTION_NAME','IDX_NAME');
 <pre><code>$idx = MongoHQ::Indexes();
 $idx-&gt;dropAll('DB_NAME','COLLECTION_NAME');
 </code></pre>
+
+<hr><p><a name="users"></a></p>
+
+<h3>
+<a name="users" class="anchor" href="#users"><span class="octicon octicon-link"></span></a>Users</h3>
+
+<p><a name="create-user"></a></p>
+
+<h4>
+<a name="creating-a-user-on-a-db-on-mongohq" class="anchor" href="#creating-a-user-on-a-db-on-mongohq"><span class="octicon octicon-link"></span></a>Creating a User on a DB on MongoHQ</h4>
+
+<pre><code>$userObj = MongoHQ::Users(); //Initializes the Database Class
+$userObj-&gt;create('DB_NAME','USER_NAME','PASSWORD');
+</code></pre>
+
+<p>The create function will internally manage the hashing of the password as required by MongoDB.</p>
 
 <p><a href="https://bitdeli.com/free" title="Bitdeli Badge"><img src="https://d2weczhvl823v0.cloudfront.net/abishekrsrikaanth/mongohq-api-laravel4/trend.png" alt="Bitdeli Badge"></a></p>
       </section>
