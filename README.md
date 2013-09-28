@@ -109,6 +109,7 @@ $idx = MongoHQ::Indexes('API_KEY_GOES_HERE')
 ```
 
 The API Key can be passed to all the initializations mentioned above
+
 -------------------
 <a name="database"></a>
 ###Database
