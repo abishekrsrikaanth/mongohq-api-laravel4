@@ -235,3 +235,4 @@ $userObj->create('DB_NAME','USER_NAME','PASSWORD');
 The create function will internally manage the hashing of the password as required by MongoDB.
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/abishekrsrikaanth/mongohq-api-laravel4/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+[![endorse](https://api.coderwall.com/abishekrsrikaanth/endorsecount.png)](https://coderwall.com/abishekrsrikaanth)
