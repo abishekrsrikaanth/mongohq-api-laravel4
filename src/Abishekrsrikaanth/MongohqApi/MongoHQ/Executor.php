@@ -7,7 +7,15 @@ class Executor
 {
 	private $_base_url = 'https://api.mongohq.com';
 
-	protected final function send($url, $obj, $type)
+
+	/**
+	 * Sends a HTTP Call with the given parameters
+	 * @param $url
+	 * @param $obj
+	 * @param $type
+	 *
+	 * @return mixed
+	 */protected final function send($url, $obj, $type)
 	{
 		$client  = new Client($this->_base_url);
 		$request = null;
