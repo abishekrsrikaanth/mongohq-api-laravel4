@@ -19,6 +19,9 @@
   - [Create Index](#create-idx)
   - [Drop Index](#drop-idx)
   - [Drop All Collection Indexes](#drop-idx-all)
+- [Users](#users)
+  - [Create User](#create-user)
+
 
 <a name="install"></a>
 ###Installation
@@ -92,11 +95,20 @@ If the MongoHQ API Key is configured on the [config file published](#config-publ
 $idx = MongoHQ::Indexes(); 
 ```
 
+***Initializing the Users Object***
+
+If the MongoHQ API Key is configured on the [config file published](#config-publish)
+```
+$idx = MongoHQ::Users(); 
+```
+
 To pass the MongoHQ API Key dynamically
 
 ```
 $idx = MongoHQ::Indexes('API_KEY_GOES_HERE')
 ```
+
+The API Key can be passed to all the initializations mentioned above
 -------------------
 <a name="database"></a>
 ###Database
@@ -207,5 +219,18 @@ $idx->drop('DB_NAME','COLLECTION_NAME','IDX_NAME');
 $idx = MongoHQ::Indexes();
 $idx->dropAll('DB_NAME','COLLECTION_NAME');
 ```
+
+---------------------------
+<a name="users"></a>
+###Users
+
+<a name="create-user"></a>
+####Creating a User on a DB on MongoHQ
+```
+$userObj = MongoHQ::Users(); //Initializes the Database Class
+$userObj->create('DB_NAME','USER_NAME','PASSWORD');
+```
+
+The create function will internally manage the hashing of the password as required by MongoDB.
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/abishekrsrikaanth/mongohq-api-laravel4/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
