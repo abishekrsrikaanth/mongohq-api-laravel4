@@ -18,16 +18,17 @@ class Users extends Executor
 		$this->_key = $key;
 	}
 
+
 	/**
-	 * Create a New User for the given DB
+	 * Creates a New user on the given DB
+	 * @param      $db
+	 * @param      $username
+	 * @param      $password
+	 * @param bool $readOnly
 	 *
-	 * @param $db
-	 * @param $username
-	 * @param $password
-	 *
-	 * @return array|bool|float|int|string
+	 * @return mixed
 	 */
-	public function create($db, $username, $password)
+	public function create($db, $username, $password, $readOnly = false)
 	{
 		$hash_password = md5($username . ":mongo:" . $password);
 
@@ -36,7 +37,7 @@ class Users extends Executor
 			'document' => array(
 				'user'     => $username,
 				'pwd'      => $hash_password,
-				'readonly' => false
+				'readonly' => $readOnly
 			),
 			'safe'     => true
 		), "POST");
