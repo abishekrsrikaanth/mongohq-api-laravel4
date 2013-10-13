@@ -2,7 +2,7 @@
     "name": "abishekrsrikaanth/mongohq-api",
     "description": "Laravel 4 Integration for MongoHQ API",
     "license": "BSD-3-Clause",
-    "keywords": ["email","laravel","laravel-4","mandrill"],
+    "keywords": ["mongohq","mongo-hq","laravel-4","mongo"],
     "homepage": "http://abishekrsrikaanth.github.io/mongohq-api-laravel4",
     "authors": [
         {
